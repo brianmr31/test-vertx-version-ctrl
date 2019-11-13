@@ -11,11 +11,12 @@ public class MainVerticle extends AbstractVerticle {
 
   @Override
   public void start(Promise<Void> startPromise) throws Exception {
-    Connection connection = new Connection( vertx );
+    // Connection connection = new Connection( vertx );
 
     HttpServer server = vertx.createHttpServer();
-
-    MainRouter mainRouter = new MainRouter(vertx, connection.getPool());
+    System.out.println("START SERVER");
+    // MainRouter mainRouter = new MainRouter(vertx, connection.getPool());
+    MainRouter mainRouter = new MainRouter(vertx);
     mainRouter.createHandler();
 
     server.requestHandler(mainRouter.getRouter()).listen(8080);
