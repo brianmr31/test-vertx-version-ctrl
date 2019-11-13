@@ -13,6 +13,16 @@ public class Version {
     private Date version_created_at;
     private boolean version_deleted_flag;
 
+    public Version(long version_id, String version_name, String version_is_force, String version_app_type){
+      this.version_id = version_id;
+      this.version_name = version_name;
+      this.version_is_force = version_is_force;
+      this.version_app_type = version_app_type;
+      this.version_created_by = "brian";
+      this.version_created_at = new Date();
+      this.version_deleted_flag = false;
+    }
+
     public long getVersionId(){
       return this.version_id;
     }
