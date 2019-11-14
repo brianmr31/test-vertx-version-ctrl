@@ -13,11 +13,12 @@ import corp.Br1aN.ctrl.version.handler.auth.CheckAuthHandler;
 public class MainRouter {
 
   private Router router = null ;
+  private PgPool pool = null;
+
   private ListVersionHandler versionHandler = null;
   private GetTestHandler getTestHandler = null;
   private AddLogHandler addLogHandler = null;
   private CheckAuthHandler checkAuthHandler = null;
-  private PgPool pool = null;
 
   public MainRouter(Vertx vertx){
     this.router =  Router.router(vertx);
