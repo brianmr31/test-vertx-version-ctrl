@@ -27,7 +27,7 @@ public class Connection {
       .setPassword(this.password);
 
     // Pool Options
-    this.poolOptions = new PoolOptions().setMaxSize(100);
+    this.poolOptions = new PoolOptions().setMaxSize(10000);
 
     // Create the pool from the data object
     this.pool = PgPool.pool(vertx, connectOptions, poolOptions);
