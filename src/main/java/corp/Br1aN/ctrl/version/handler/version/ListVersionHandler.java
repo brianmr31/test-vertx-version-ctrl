@@ -1,17 +1,20 @@
 package corp.Br1aN.ctrl.version.handler.version;
+
 import java.util.List;
 import java.util.ArrayList;
+
 import io.vertx.core.Handler;
-import io.vertx.ext.web.RoutingContext;
 import io.vertx.core.http.HttpServerResponse;
+import io.vertx.core.json.JsonObject;
+
+import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.RoutingContext;
 
 import io.vertx.sqlclient.SqlConnection;
 import io.vertx.sqlclient.RowSet;
 import io.vertx.sqlclient.Row;
-import io.vertx.pgclient.PgPool;
 
-import io.vertx.core.json.JsonObject;
+import io.vertx.pgclient.PgPool;
 
 import corp.Br1aN.ctrl.version.model.Version;
 
