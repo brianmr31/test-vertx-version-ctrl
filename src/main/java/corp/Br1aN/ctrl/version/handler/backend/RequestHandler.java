@@ -4,11 +4,12 @@ import io.vertx.core.Vertx;
 import io.vertx.core.Handler;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.core.json.JsonObject;
+// import io.vertx.core.MultiMap;
+import io.vertx.core.buffer.Buffer;
 
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.client.WebClient;
 import io.vertx.ext.web.client.HttpResponse;
-import io.vertx.core.buffer.Buffer;
 
 public class RequestHandler implements Handler<RoutingContext> {
 
@@ -25,11 +26,21 @@ public class RequestHandler implements Handler<RoutingContext> {
 
   public void handle(RoutingContext context) {
     System.out.println("Print RequestHandler");
+    String path = context.normalisedPath();
+    System.out.println("path \n"+path);
     // Send a GET request
     this.client
       .get(8888, "127.0.0.1", "/")
       .send(ar -> {
         if (ar.succeeded()) {
+          // context.reroute(String path);
+
+          // context.reroute("/api/v1/auth");
+
+          // MultiMap queryParams = context.queryParams();
+          // String[] check = queryParams.toString().split("\n");
+          // System.out.println("check \n"+check[0]);
+
           this.responseAr = ar.result();
 
           this.response = context.response();
@@ -47,7 +58,6 @@ public class RequestHandler implements Handler<RoutingContext> {
           System.out.println("Something went wrong " + ar.cause().getMessage());
         }
       });
-
 
   }
 }
